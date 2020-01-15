@@ -1,11 +1,9 @@
 const generateHTML = require("./generateHTML");
-
-const questions = [
-  
-];
+const colorRef = ["green", "blue", "pink", "red"];
+const questions = [];
 
 function writeToFile(fileName, data) {
- 
+
 }
 
 function init() {
@@ -14,16 +12,46 @@ function init() {
     const inquirer = require("inquirer");
 
     inquirer
-        .prompt({
+        .prompt([{
+            type: "input",
             message: "Enter your GitHub username",
             name: "username"
-        })
-        .then(function ({ username }) {
-            const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
-            axios.get(queryUrl).then(function (data) { console.log(data.data[0].name) 
-            generateHTML.pdfGen(data)})
+        },
+        {
+            type: "list",
+            message: "what is your preferred method of communication",
+            name: "chosenColor",
+            choices: colorRef
+        }])
+        .then(function (answer) {
             
+            const queryUrl = `https://api.github.com/users/${answer.username}`;
+            console.log(queryUrl)
+            axios.get(queryUrl).then(function (data) {
+                console.log(data.data.login)
+                console.log(data.data.avatar_url)
+                console.log(data.data.bio)
+                console.log(data.data.public_repos);
+                console.log(data.data.followers);
+                console.log(data.data.following);
+                console.log(data.data.location);
+                console.log(data.data.blog);
+
+            });
+
         });
-    }
+}
 
 init();
+
+// Auxpbjstructure = {
+//     profileImage,
+//     username,
+//     links: [location, GitHubprofile, blog],
+//     bio,
+//     repos,
+//     followers
+//     , githubStars,
+//     usersFollowing
+// }
+

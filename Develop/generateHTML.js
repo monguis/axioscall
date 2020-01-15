@@ -26,7 +26,7 @@ const colors = {
 };
 
 function generateHTML(data) {
-  console.log("entros");
+  console.log(colors[0]);
   return `<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -54,7 +54,7 @@ function generateHTML(data) {
             }
             .wrapper {
             background-color: ${colors[data.color].wrapperBackground};
-            padding-top: 100px;
+            padding-top: 100px;b
             }
             body {
             background-color: white;
@@ -180,5 +180,6 @@ function generateHTML(data) {
 }
 
 module.exports = {
-  pdfGen: generateHTML
+  pdfGen: generateHTML,
+  pdfColors: colors
 };
