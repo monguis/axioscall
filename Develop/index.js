@@ -22,7 +22,7 @@ function init() {
         },
         {
             type: "list",
-            message: "what is your preferred method of communication",
+            message: "Please choose the color for your desire resume",
             name: "chosenColor",
             choices: colorRef
         }])
