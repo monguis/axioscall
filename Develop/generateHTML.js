@@ -165,6 +165,9 @@ function generateHTML(data) {
             flex: 1;
             text-align: center;
             }
+            #bio{
+              text-align: center;
+            }
 
             a, a:hover {
             text-decoration: none;
@@ -203,7 +206,7 @@ function generateHTML(data) {
           </div>
       <div class="container">
           <div class="row">
-              <h3>
+              <h3 id="bio">
               ${data.bio}
               </h3>
           </div>
