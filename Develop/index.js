@@ -8,14 +8,7 @@ const conversion = convertFactory({
     converterPath: convertFactory.converters.PDF
 });
 
-
-
-
 //////////////////////////////////////////////////////////
-function writeToFile(fileName, response) {
-
-}
-
 function init() {
     const axios = require("axios");
     const inquirer = require("inquirer");
@@ -50,7 +43,8 @@ function init() {
                     following: data.following,
                     location: data.location,
                     blogLink: data.blog,
-                    color: colorRef.indexOf(chosenColor)
+                    color: colorRef.indexOf(chosenColor),
+                    company: data.company
                 }
                 let htmlcode = generateHTML.pdfGen(parameter);
                 console.log(htmlcode);
@@ -61,8 +55,8 @@ function init() {
 
                     console.log(result.numberOfPages);
                     console.log(result.logs);
-                    result.stream.pipe(fs.createWriteStream('lol.pdf'));
-                    conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
+                    result.stream.pipe(fs.createWriteStream(`${data.login}.pdf`));
+                    conversion.kill();
                 });
 
             });

@@ -58,7 +58,7 @@ function generateHTML(data) {
             .wrapper {
             background-color: ${colors[data.color].wrapperBackground};
             padding-top: 100px;
-            height: 30%;
+            height: 40%;
             }
             body {
             background-color: white;
@@ -139,8 +139,8 @@ function generateHTML(data) {
             }
             .container {
             padding: 50px;
-            padding-left: 100px;
-            padding-right: 100px;
+            padding-left: 50px;
+            padding-right: 50px;
             }
 
             .row {
@@ -192,12 +192,12 @@ function generateHTML(data) {
                   My name is ${data.name}
               </h2>
               <h4>
-                  currently @ 
+                  currently @ ${data.company}
               </h4>
               <div class="links-nav">
-                  <a href="https://www.google.com/maps/place/${data.location}" class="nav-link">${data.location}</a>
-                  <a href="${data.url}" class="nav-link">Github</a>
-                  <a href="${data.blogs}" class="nav-link">something</a>
+                  <a href="https://www.google.com/maps/place/${data.location}" class="nav-link"><i class="fas fa-location-arrow"></i>${data.location}</a>
+                  <a href="${data.url}" class="nav-link"><i class="fab fa-github-alt"></i>Github</a>
+                  <a href="${data.blogLink}" class="nav-link"><i class="fas fa-rss"></i>Blog</a>
               </div>
           </header>
           </div>
@@ -244,6 +244,14 @@ function generateHTML(data) {
               </div>
           </div>
       </div>
+      <div class = "wrapper">
+    
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
       </body>
     </html>`
 }
