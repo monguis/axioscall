@@ -1,29 +1,29 @@
-const colors = {
-  green: {
+const colors =
+  [{ //grenn
     wrapperBackground: "#E6E1C3",
     headerBackground: "#C1C72C",
     headerColor: "black",
     photoBorderColor: "#black"
   },
-  blue: {
+  { //blue
     wrapperBackground: "#5F64D3",
     headerBackground: "#26175A",
     headerColor: "white",
     photoBorderColor: "#73448C"
   },
-  pink: {
+  {// pink
     wrapperBackground: "#879CDF",
     headerBackground: "#FF8374",
     headerColor: "white",
     photoBorderColor: "#FEE24C"
   },
-  red: {
+  { //red
     wrapperBackground: "#DE9967",
     headerBackground: "#870603",
     headerColor: "white",
     photoBorderColor: "white"
-  }
-};
+  }]
+  ;
 
 function generateHTML(data) {
   console.log(colors[0]);
@@ -34,6 +34,9 @@ function generateHTML(data) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
           <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
           <title>Document</title>
           <style>
@@ -49,12 +52,13 @@ function generateHTML(data) {
             padding: 0;
             margin: 0;
             }
-            html, body, .wrapper {
+            html, body .wrapper{
             height: 100%;
             }
             .wrapper {
             background-color: ${colors[data.color].wrapperBackground};
-            padding-top: 100px;b
+            padding-top: 100px;
+            height: 30%;
             }
             body {
             background-color: white;
@@ -153,6 +157,8 @@ function generateHTML(data) {
               background-color: ${colors[data.color].headerBackground};
               color: ${colors[data.color].headerColor};
               margin: 20px;
+              width: 45%;
+              text-align: center;
             }
             
             .col {
@@ -174,7 +180,70 @@ function generateHTML(data) {
           </style>
       </head>
       <body>
-        
+      <body>
+      <div class="wrapper">
+          <header class="photo-header">
+              <img src="${data.profilePicture}" alt="">
+              <h1>
+                  Hi!
+              </h1>
+              <br>
+              <h2>
+                  My name is ${data.name}
+              </h2>
+              <h4>
+                  currently @ 
+              </h4>
+              <div class="links-nav">
+                  <a href="https://www.google.com/maps/place/${data.location}" class="nav-link">${data.location}</a>
+                  <a href="${data.url}" class="nav-link">Github</a>
+                  <a href="${data.blogs}" class="nav-link">something</a>
+              </div>
+          </header>
+          </div>
+      <div class="container">
+          <div class="row">
+              <h3>
+              ${data.bio}
+              </h3>
+          </div>
+          <div class="row ">
+              <div class="card">
+              <h3>
+              Public Repositories
+              </h3>
+              <h3>
+              ${data.repos}
+              </h3>
+              </div>
+              <div class="card">
+              <h3>
+              Followers
+              </h3>
+              <h3>
+              ${data.followers}
+              </h3>    
+              </div>
+          </div>
+          <div class="row">
+              <div class="card">
+              <h3>
+              GitHub Stars
+              </h3>
+              <h3>
+              ${data.followers}
+              </h3>
+              </div>
+              <div class="card">
+              <h3>
+              Following
+              </h3>
+              <h3>
+              ${data.followers}
+              </h3>
+              </div>
+          </div>
+      </div>
       </body>
     </html>`
 }
