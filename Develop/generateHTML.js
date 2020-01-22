@@ -248,12 +248,7 @@ function generateHTML(data) {
           </div>
       </div>
       <div class = "wrapper">
-    
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+    <footer></footer>
     </div>
       </body>
     </html>`
